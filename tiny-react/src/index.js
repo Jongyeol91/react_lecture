@@ -11,9 +11,8 @@ function Title (props) {
     )
 }
 
-console.log(Title());
-
-//render(<Title/>, document.querySelector('#root'));
+// 사용자의 컴포넌트는 함수자체를 넘겨준다.
+render(<Title/>, document.querySelector('#root'));
 
 // <div id="root">
 //     <span>haha</span>
