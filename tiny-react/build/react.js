@@ -1,5 +1,14 @@
 function renderRealDOM(vdom) {
+  if (typeof vdom === 'string') {
+    console.log(vdom);
+    return document.createTextNode(vdom);
+  }
+
+  if (vdom === undefined) return;
   const $el = document.createElement(vdom.tagName);
+  console.log(vdom);
+  let test = vdom.children.map(renderRealDOM);
+  console.log("test", test);
   return $el;
 }
 

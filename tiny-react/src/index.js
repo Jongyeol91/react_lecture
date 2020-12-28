@@ -7,6 +7,11 @@ function Title (props) {
         <div>
             <h2>바벨 트렌스 파일링 전</h2>
             <h3>안녕하세요</h3>
+            <h4>하이</h4>
+          <div>
+            안녕
+            <h5>dd</h5>
+          </div>
         </div>
     )
 }
