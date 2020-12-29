@@ -14,12 +14,18 @@ function renderRealDOM(vdom) {
     return $el;
 }
 
-export function render(vdom, container) {
-    if (prevVdom !== nextVdom) {
-
+// compare vdom
+// clojure
+export const render = (() => {
+    let prevVdom = null;
+    return function (nextVdom, container) {
+        if (prevVdom === null) {
+            prevVdom = nextVdom;
+        }
+        container.appendChild(renderRealDOM(nextVdom))
     }
-    container.appendChild(renderRealDOM(vdom))
-}
+})();
+
 
 export function createElement(tagName, props, ...children) {
     if (typeof tagName === 'function') {

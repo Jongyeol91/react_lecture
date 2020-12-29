@@ -10,13 +10,20 @@ function renderRealDOM(vdom) {
     $el.appendChild(node);
   });
   return $el;
-}
+} // compare vdom
+// clojure
 
-export function render(vdom, container) {
-  if (prevVdom !== nextVdom) {}
 
-  container.appendChild(renderRealDOM(vdom));
-}
+export const render = (() => {
+  let prevVdom = null;
+  return function (nextVdom, container) {
+    if (prevVdom === null) {
+      prevVdom = nextVdom;
+    }
+
+    container.appendChild(renderRealDOM(nextVdom));
+  };
+})();
 export function createElement(tagName, props, ...children) {
   if (typeof tagName === 'function') {
     return tagName.apply(null, [props, ...children]);
