@@ -3,7 +3,7 @@
 import { createElement, render } from './react.js';
 
 function Title(props) {
-  return createElement("div", null, createElement("h2", null, "\uBC14\uBCA8 \uD2B8\uB80C\uC2A4 \uD30C\uC77C\uB9C1 \uC804"), createElement("h3", null, "\uC548\uB155\uD558\uC138\uC694"), createElement("h4", null, "\uD558\uC774"), createElement("div", null, "\uC548\uB155", createElement("h5", null, "dd")));
+  return createElement("div", null, createElement("span", null, "depth1_1"), createElement("span", null, "depth1_2"), createElement("span", null, "depth1_3"), createElement("div", null, createElement("span", null, "depth2_1"), createElement("span", null, "depth2_2"), createElement("span", null, "depth2_3")), createElement("div", null, createElement("span", null, "depth3_1"), createElement("span", null, "depth3_2"), createElement("span", null, "depth3_3")));
 } // 사용자의 컴포넌트는 함수자체를 넘겨준다.
 
 

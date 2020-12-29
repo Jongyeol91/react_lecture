@@ -1,18 +1,20 @@
 function renderRealDOM(vdom) {
   if (typeof vdom === 'string') {
-    console.log(vdom);
     return document.createTextNode(vdom);
   }
 
   if (vdom === undefined) return;
   const $el = document.createElement(vdom.tagName);
-  console.log(vdom);
-  let test = vdom.children.map(renderRealDOM);
-  console.log("test", test);
+  let test = vdom.children.map(renderRealDOM).forEach((node, idx) => {
+    console.log('node', node, 'idx', idx);
+    $el.appendChild(node);
+  });
   return $el;
 }
 
 export function render(vdom, container) {
+  if (prevVdom !== nextVdom) {}
+
   container.appendChild(renderRealDOM(vdom));
 }
 export function createElement(tagName, props, ...children) {
