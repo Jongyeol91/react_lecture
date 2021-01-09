@@ -1,9 +1,10 @@
 import { createStore } from "./redux.js";
 
-function updater() {
-    
+function updater(state, data) {
+    state = data;
+    return state;
 }
+const store = createStore(updater);
 
-const store = createStore();
-
-console.log(1)
+store.doUpdate({ counter: 1 });
+console.log(store.getState());
