@@ -1,10 +1,17 @@
 import { createStore } from "./redux.js";
 
-function updater(state, data) {
-    state = data;
+function reducer(state, action) {
+    if (action.type === "COUNT") {
+        return { ...state, counter: action.paylaod.counter }
+    }
     return state;
 }
-const store = createStore(updater);
+const store = createStore(reducer);
 
-store.doUpdate({ counter: 1 });
+store.dispatch({ 
+    type: "COUNT",
+    payload: {
+        counter: 1
+    } 
+});
 console.log(store.getState());
